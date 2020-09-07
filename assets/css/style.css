@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Squada One', cursive;
+}
+body {
+  background: #FBD277;
+}
+::selection {
+  background: transparent;
+}
+.main {
+  height: 100vh;
+  width: 100%;
+  display: Flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(102, 211, 241, 0.658);
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgb(37, 80, 92);
+
+  display: none;
+  border-radius: 4px;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 0;
+  text-align: center;
+}
+.sidebar {
+  padding: 15px;
+  position: absolute;
+  bottom: -115px;
+  left: 50%;
+  border: 1px solid #CAD0D7;
+  -webkit-box-shadow: inset 0 0 0 1px #fff;
+          box-shadow: inset 0 0 0 1px #fff;
+  background: #F4F6F8;
+  border-radius: 4px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+.sidebar .timer {
+  display: inline-block;
+  border-left: 1px solid #CAD0D7;
+  height: 100%;
+  padding-left: 15px;
+  font-size: 42px;
+  color: #666;
+}
+.sidebar .timer #mZero, .sidebar .timer #sZero {
+  display: none;
+}
+.button {
+  padding: 11px 22px;
+  display: inline-block;
+  border-radius: 4px;
+  background: #4FC0E8;
+  border: 1px solid #3AADD9;
+  -webkit-box-shadow: inset 0 0 0 1px #66D4F1;
+          box-shadow: inset 0 0 0 1px #66D4F1;
+  outline: none;
+  color: #333;
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 18px;
+}
+.container {
+  width: 1000px;
+  height: 500px;
+  border: 1px solid #CAD0D7;
+  -webkit-box-shadow: inset 0 0 0 1px #fff;
+          box-shadow: inset 0 0 0 1px #fff;
+  background: #F4F6F8;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  padding: 5px 0 0 5px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  position: relative;
+}
+.card {
+  width: 120px;
+  height: 120px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 4px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.card-front {
+  background: #46CEAC;
+  border: 1px solid #35BA9B;
+  -webkit-box-shadow: inset 0 0 0 1px #61DDBC;
+          box-shadow: inset 0 0 0 1px #61DDBC;
+  cursor: pointer;
+  font-size: 42px;
+  text-align: center;
+  line-height: 120px;
+  color: #35BA9B;
+}
+.flip {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.card-back {
+  background: #4FC0E8;
+  border: 1px solid #3AADD9;
+  -webkit-box-shadow: inset 0 0 0 1px #66D4F1;
+          box-shadow: inset 0 0 0 1px #66D4F1;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card-back img {
+  width: 50%;
+}
+
+
+.intro {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(102, 211, 241, 0.658);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(28, 85, 107);
+  transition: opacity 0.3s;
+}
+.intro h1 {
+  font-size: 92px;
+}
+.intro h3 {
+  font-size: 28px;
+}
+.topMenu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

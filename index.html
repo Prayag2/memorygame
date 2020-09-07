@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- title -->
+    <title>Memory Game</title>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <audio id="click">
+        <source src="./assets/sounds/click.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="victory">
+        <source src="./assets/sounds/victory.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="shuffle">
+        <source src="./assets/sounds/shuffle.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="wrong">
+        <source src="./assets/sounds/wrong.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="correct">
+        <source src="./assets/sounds/correct.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="main">
+        <div class="topMenu">
+            <button class="button" onclick="changeDiff()" id="pause_button">Change Difficulty</button>
+        </div>
+        <div class="intro" id="intro">
+            <h1>The Memory Game!</h1>
+            <br>
+            <h3>Select A Difficulty Level To Start The Game!</h3>
+            <br>
+            <div class="levels">
+                <button onclick="start(1,5)" class="button">Noob</button>
+                <button onclick="start(30,3)" class="button">Pro</button>
+                <button onclick="start(1,2)" class="button">Ninja</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="sidebar">
+                <button class="button" id="reset">Shuffle Cards</button>
+                <div class="timer">
+                    <span id="minute">0</span>:<span id="second">0</span>
+                </div>
+            </div>
+            <div class="overlay" id="overlay">
+                <h1>Shuffling Your Cards...</h1>
+            </div>
+            <div class="card" data-card="google">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/google.svg">
+                </div>
+            </div>
+            <div class="card" data-card="google">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/google.svg">
+                </div>
+            </div>
+            <div class="card" data-card="apple">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/apple.svg">
+                </div>
+            </div>
+            <div class="card" data-card="apple">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/apple.svg">
+                </div>
+            </div>
+            <div class="card" data-card="windows">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/windows.svg">
+                </div>
+            </div>
+            <div class="card" data-card="windows">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/windows.svg">
+                </div>
+            </div>
+            <div class="card" data-card="android">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/android.svg">
+                </div>
+            </div>
+            <div class="card" data-card="android">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/android.svg">
+                </div>
+            </div>
+            <div class="card" data-card="xbox">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/xbox.svg">
+                </div>
+            </div>
+            <div class="card" data-card="xbox">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/xbox.svg">
+                </div>
+            </div>
+            <div class="card" data-card="youtube">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/youtube.svg">
+                </div>
+            </div>
+            <div class="card" data-card="youtube">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/youtube.svg">
+                </div>
+            </div>
+            <div class="card" data-card="whatsapp">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/whatsapp.svg">
+                </div>
+            </div>
+            <div class="card" data-card="whatsapp">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/whatsapp.svg">
+                </div>
+            </div>
+            <div class="card" data-card="twitter">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/twitter.svg">
+                </div>
+            </div>
+            <div class="card" data-card="twitter">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/twitter.svg">
+                </div>
+            </div>
+            <div class="card" data-card="snapchat">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/snap.svg">
+                </div>
+            </div>
+            <div class="card" data-card="snapchat">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/snap.svg">
+                </div>
+            </div>
+            <div class="card" data-card="fb">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/facebook.svg">
+                </div>
+            </div>
+            <div class="card" data-card="fb">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/facebook.svg">
+                </div>
+            </div>
+            <div class="card" data-card="insta">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/insta.svg">
+                </div>
+            </div>
+            <div class="card" data-card="insta">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/insta.svg">
+                </div>
+            </div>
+            <div class="card" data-card="skype">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/skype.svg">
+                </div>
+            </div>
+            <div class="card" data-card="skype">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/skype.svg">
+                </div>
+            </div>
+            <div class="card" data-card="twitch">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/twitch.svg">
+                </div>
+            </div>
+            <div class="card" data-card="twitch">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/twitch.svg">
+                </div>
+            </div>
+            <div class="card" data-card="gamepad">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/gamepad.svg">
+                </div>
+            </div>
+            <div class="card" data-card="gamepad">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/gamepad.svg">
+                </div>
+            </div>
+            <div class="card" data-card="cat">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/cat.svg">
+                </div>
+            </div>
+            <div class="card" data-card="cat">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/cat.svg">
+                </div>
+            </div>
+            <div class="card" data-card="chrome">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/chrome.svg">
+                </div>
+            </div>
+            <div class="card" data-card="chrome">
+                <div class="card-front">M</div>
+                <div class="card-back">
+                    <img src="./assets/svg/chrome.svg">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="./assets/js/game.new.js"></script>
+</body>
+
+</html>
